@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const flightSchema = new Schema({
+const flightSchema = new Schema({ //<-- exporting this schema below
     airline: {type: String, required: true,
                 enum: ['American', 'Southwest', 'United']},
     airport: {type: String, required: true,
@@ -14,3 +14,5 @@ const flightSchema = new Schema({
     }}
 
 })
+
+module.exports = mongoose.model('Flight', flightSchema) //<-- exporting! 
