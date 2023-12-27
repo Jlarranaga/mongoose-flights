@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+
+<div class="container center">
+    <h2><%= title %></h2>
+    <div class="container col" style="width: 18rem">
+
+    </div>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">Airline</th>
+                <th scope="col">Airport</th>
+                <th scope="col">Flight Number</th>
+                <th scope="col">Depature</th>
+                <!-- <th scope="col">Destination</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"><%= flight.airline%></td>
+                <td scope="row"><%= flight.airport%></td>
+                <td scope="row"><%= flight.flightNo%></td>
+                <td scope="row"><%= flight.departs%></td>
+                <!-- <td scope="row"><%= //flight.destinations%></td> -->
+            </tr>
+        </tbody>
+    </table>
+    <form action="/flights/<%= flight.id %>/destinations" method="POST">
+        <label for="airport"><br>
+            <select name="airport">
+                <option value="aus">AUS</option>
+                <option value="dfw">DFW</option>
+                <option value="den">DEN</option>
+                <option value="lax">LAX</option>
+                <option value="san">SAN</option>
+            </select>
+        </label><br>
+        <label for="arrival"><br>  
+            <input type="datetime-local" name="arrival">
+        </label><br>
+        <br>
+        <button type="submit" id="">Add Destination</button>  
+    </form>
+    <br>
+    <a href="/flights/all" class="btn btn-warning">Back to all flights</a>
+</div>
+
+<%- include('../partials/footer') %>
